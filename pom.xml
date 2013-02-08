@@ -19,6 +19,15 @@
         <maven.build.timestamp.format>yyyyMMdd'T'HHmmss</maven.build.timestamp.format>
         <netbeans.hint.j2eeVersion>1.6</netbeans.hint.j2eeVersion>
     </properties>
+    
+    <repositories>
+        <repository>  
+            <id>prime-repo</id>  
+            <name>PrimeFaces Maven Repository</name>  
+            <url>http://repository.primefaces.org</url>  
+            <layout>default</layout>  
+        </repository> 
+    </repositories>
 
     <dependencyManagement>
         <dependencies>
