@@ -63,6 +63,12 @@
             <artifactId>atmosphere-runtime</artifactId>
             <version>1.0.9</version>
         </dependency>
+        
+        <dependency>
+            <groupId>org.atmosphere</groupId>
+            <artifactId>atmosphere-compat-jbossweb</artifactId>
+            <version>1.0.9</version>
+        </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>
