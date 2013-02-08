@@ -9,6 +9,8 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.enterprise.context.SessionScoped;
+import javax.enterprise.inject.Model;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import org.primefaces.push.PushContext;
@@ -20,35 +22,25 @@ import org.slf4j.LoggerFactory;
  *
  * @author Glen
  */
-@Named
-@SessionScoped
+@Model
 public class VotingBean implements Serializable {
-    
-	private static final Logger log = LoggerFactory.getLogger(VotingBean.class);
-	
-	private static final long serialVersionUID = 1L;
-	
-	private AtomicInteger count = new AtomicInteger();
- 
-    public int getCount() {
-        return count.get();
+
+    private static final Logger log = LoggerFactory.getLogger(VotingBean.class);
+    private static final long serialVersionUID = 1L;
+    private String nextMessage;
+
+    public String getNextMessage() {
+        return nextMessage;
     }
- 
-    public void setCount(int count) {
-        this.count.set(count);
+
+    public void setNextMessage(String nextMessage) {
+        this.nextMessage = nextMessage;
     }
-    
-    public void incomingMessage() {
-    	log.warn("Incoming message!");
-    	Map<String,String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();  
-        //String globalRecIdWithPrefix = params.get("globalRecId");  
-    }
- 
-    public void increment() {
-    	log.warn("Invoking increment");
-        int next = count.incrementAndGet();
+
+    public void sendChat() {
+
         PushContext pushContext = PushContextFactory.getDefault().getPushContext();
-        pushContext.push("/counter", String.format("%d", next));
+        pushContext.push("/chat", nextMessage);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Sent chat: " + nextMessage));
     }
-    
 }

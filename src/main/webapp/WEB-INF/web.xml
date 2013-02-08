@@ -26,10 +26,6 @@
 	<servlet>
 		<servlet-name>Push Servlet</servlet-name>
 		<servlet-class>org.primefaces.push.PushServlet</servlet-class>
-		<init-param>
-			<param-name>channels</param-name>
-			<param-value>/counter</param-value>
-		</init-param>
 		<load-on-startup>1</load-on-startup>
 		<async-supported>true</async-supported>
 	</servlet>
