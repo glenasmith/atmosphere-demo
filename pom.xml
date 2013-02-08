@@ -9,7 +9,7 @@
     <packaging>war</packaging>
 
     <name>Vote Bytecode</name>
-    <description>Primefaces Atmosphere Demo generated from the jboss-javaee6-webapp archetype</description>
+    <description>Primefaces Atmosphere Chat Demo generated from the jboss-javaee6-webapp archetype</description>
     <url>http://blogs.bytecode.com.au/</url>
 
     <properties>
