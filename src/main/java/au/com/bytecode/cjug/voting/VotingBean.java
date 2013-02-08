@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package au.com.lbytecode.cjug.voting;
+package au.com.bytecode.cjug.voting;
 
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
