@@ -76,13 +76,14 @@
         <dependency>
             <groupId>org.atmosphere</groupId>
             <artifactId>atmosphere-runtime</artifactId>
-            <version>1.0.9</version>
+            <version>1.1.0.beta3</version>
         </dependency>
         
+ 	<!-- http://blog.yonatan.me/2012/08/primefacesatmospherepushmaven-setup.html -->
         <dependency>
             <groupId>org.atmosphere</groupId>
             <artifactId>atmosphere-compat-jbossweb</artifactId>
-            <version>1.0.9</version>
+            <version>1.1.0.beta3</version>
         </dependency>
 
         <dependency>

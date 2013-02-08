@@ -9,15 +9,20 @@
         <title>Vote For Me!</title>
     </h:head>
     <h:body>
+    
+    	
 
         <h:form id="counter">
+        
+        	<p:remoteCommand name="incomingMessage" 
+                                     actionListener="#{votingBean.incomingMessage}" 
+                                     update=":counter:out"/>
+        
             <h:outputText id="out" value="#{votingBean.count}" styleClass="display" />
-            <p:commandButton value="Click" actionListener="#{votingBean.increment}" />
+            <p:commandButton value="Click" actionListener="#{votingBean.increment}" update=":counter:out" />
         </h:form>
 
-        <p:socket channel="/counter" >
-            <p:ajax event="message" update="counter:out" />
-        </p:socket>
+        <p:socket channel="/counter" onMessage="incomingMessage();"/>
 
     </h:body>
 </html>
