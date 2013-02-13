@@ -7,6 +7,30 @@
       xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <title>Vote For Me!</title>
+        <style>
+        
+        	textarea {
+        		width: 100%;
+        		font-size: xx-large;
+        	}
+        	
+        	label {
+        		width: 10em;
+        	}
+        	button {
+        		margin-top: 1em;
+        	}
+        	
+        	#chat {
+        		font-size: xx-large;
+        		width: 100%;
+        		background-color: #F3F3F3;
+        		margin-top: 1em;
+        		padding: 1em;
+        		border-radius: 5px;
+        	}
+        	
+        </style>
     </h:head>
     <h:body>
     
@@ -14,20 +38,28 @@
 
         <h:form id="form">
        
-            <p:growl id="status"/>
-            Enter a chat:
-            <p:inputTextarea value="#{votingBean.nextMessage}"/>
+            <p:growl id="status" life="3000"/>
+            
+            <p:panelGrid columns="2" style="width: 100%;">
+            
+            	<p:outputLabel for="chatText" value="Enter a chat:"/> 
+            	<p:inputTextarea value="#{votingBean.nextMessage}" id="chatText"/>
+            
+            </p:panelGrid>
+            
+            <p:commandButton value="Send" actionListener="#{votingBean.sendChat}" 
+            	update=":form:status" styleClass="ui-priority-primary"/>
      
-            <p:commandButton value="Click" actionListener="#{votingBean.sendChat}" update=":form:status" />
+            
         </h:form>
         
-        <div class="chat"/>
+        <div id="chat"/>
 
         <p:socket channel="/chat" onMessage="incomingMessage"/>
 
         <script type="text/javascript">
             function incomingMessage(data) {
-                $('.chat').prepend('<p>' + data + '</p>'); 
+                $('#chat').prepend('<p>' + data + '</p>'); 
             }
         </script>
     </h:body>
